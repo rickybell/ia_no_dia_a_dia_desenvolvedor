@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title># Roteiro - IA no dia a dia de um desenvolvedor.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="roteiro---ia-no-dia-a-dia-de-um-desenvolvedor-15-minutos">Roteiro - IA no dia a dia de um desenvolvedor (15 minutos)</h1>
+<h2 id="1-abertura-e-pergunta-ia-vai-substituir-profissionais-1-minuto">1. Abertura e pergunta: IA vai substituir profissionais?( 1 minuto)</h2>
+<h3 id="resposta">Resposta:</h3>
+<blockquote>
+<ul>
+<li>Provavelmente não da forma como normalmente imaginamos.</li>
+</ul>
+</blockquote>
+<h3 id="o-mais-provável-é-que">O mais provável é que:</h3>
+<blockquote>
+<ul>
+<li>profissionais que utilizam IA sejam mais produtivos;</li>
+<li>profissionais que aprendam a trabalhar com IA tenham vantagem competitiva;</li>
+<li>tarefas repetitivas sejam cada vez mais automatizadas.</li>
+</ul>
+</blockquote>
+<h2 id="2-explicar-ia-como-assistente-e-acelerador-de-produtividade-1-minuto">2. Explicar IA como assistente e acelerador de produtividade.( 1 minuto)</h2>
+<blockquote>
+<p>Quando falamos de Inteligência Artificial, muitas pessoas imaginam algo capaz de substituir completamente o trabalho humano.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Na prática, o que vemos hoje é algo diferente.</p>
+<p>A IA funciona muito mais como um assistente e um acelerador de produtividade.</p>
+<p>Um assistente porque ela ajuda:</p>
+<ul>
+<li>a responder dúvidas</li>
+<li>sugerir soluções</li>
+<li>revisar trabalhos</li>
+<li>encontrar informações.</li>
+</ul>
+<p>E um acelerador porque tarefas que antes levavam horas podem ser realizadas em minutos.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>No desenvolvimento de software, por exemplo, ela pode criar uma estrutura inicial de projeto, gerar testes, documentar código ou sugerir melhorias.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Mas quem continua entendendo o problema, tomando decisões e validando o resultado é o profissional.</p>
+</blockquote>
+<h2 id="3-exemplo-docker-compose-do-básico-às-boas-práticas-2-minutos">3. Exemplo Docker Compose: do básico às boas práticas.( 2 minutos)</h2>
+<blockquote>
+<p>Como não temos muito tempo, vamos partira para alguns exemplos:</p>
+<ul>
+<li>abre o ChatGpt(que já deve estar aberto por sinal)</li>
+<li>adiciona o prompt.</li>
+<li>gera o docker-compose</li>
+<li>exibe e explica o que aconteceu.</li>
+</ul>
+</blockquote>
+<pre class="hljs"><code><div>Inicio de desenvolvimento de um serviço de autenticação que utiliza linguagem java, posgresql e keycloak, preciso de um docker-compose para iniciar o desenvolvimento.
+</div></code></pre>
+<blockquote>
+<p>Melhore a solução considerando:</p>
+</blockquote>
+<pre class="hljs"><code><div>Agora o projeto evoluiu e se faz necessária a criação de um docker-compose mais adequado para direcionamento do projeto ir para produção levando em consideração os seguintes pontos: 
+
+- PostgreSQL 17
+- Volumes persistentes
+- Banco authdb
+- Rede dedicada
+- Healthchecks
+- Variáveis em .env
+- Restart automático
+- Importação de realm
+
+</div></code></pre>
+<h4 id="o-que-falar">O que falar</h4>
+<blockquote>
+<p>&quot;Aqui existe uma lição importante.</p>
+<p>O valor não está apenas na IA.</p>
+<p>O valor está na combinação:</p>
+<ul>
+<li>Conhecimento humano + IA.</li>
+</ul>
+<p>Quanto melhor o contexto fornecido, melhor será o resultado.&quot;</p>
+</blockquote>
+<h2 id="4-crud-completo-entidade-endpoints-testes-unitários-e-integração-3-minutos">4. CRUD completo: entidade, endpoints, testes unitários e integração.( 3 minutos)</h2>
+<blockquote>
+<p>Agora vamos imaginar uma tarefa extremamente comum:</p>
+<p><strong>Precisamos criar uma funcionalidade para manter os dados de clientes, adicionar, alterar e até remover.</strong></p>
+<p>Usar a frase:</p>
+<p>&quot;Tradicionalmente isso exigiria várias classes, endpoints, testes e documentação.&quot;</p>
+</blockquote>
+<p><strong>PROMPT :</strong></p>
+<pre class="hljs"><code><div>Crie uma API REST para manutenção
+de clientes.
+
+Gere:
+
+- Entidade
+- Repository
+- Service
+- Controller
+- DTOs
+- Tratamento de exceções
+
+</div></code></pre>
+<blockquote>
+<p>Falar: &quot;Em segundos a IA produz toda a estrutura inicial.&quot;</p>
+</blockquote>
+<h2 id="5-revisão-de-código-e-sugestões-de-melhoria-2-minutos">5. Revisão de código e sugestões de melhoria.( 2 minutos)</h2>
+<blockquote>
+<p>&quot;Software não é apenas código. Software precisa de qualidade.&quot;</p>
+</blockquote>
+<pre class="hljs"><code><div>Gere testes unitários
+para esta API utilizando:
+
+- JUnit 5
+- Mockito
+
+Considere:
+
+- sucesso
+- cliente inexistente
+- e-mail inválido
+</div></code></pre>
+<blockquote>
+<p>&quot;A IA agora não está criando funcionalidade. Está ajudando a garantir qualidade.&quot;</p>
+</blockquote>
+<h2 id="6-migração-java-para-net-e-python-2-minutos">6. Migração Java para .NET e Python.( 2 minutos)</h2>
+<blockquote>
+<p>&quot;A IA não elimina a necessidade de conhecimento técnico. Ela reduz o tempo gasto em tarefas repetitivas para que possamos dedicar mais tempo à análise, qualidade e tomada de decisão.&quot;</p>
+</blockquote>
+<blockquote>
+<p>O que falar</p>
+<p>&quot;Uma das características mais interessantes da IA é que ela não conhece apenas sintaxe.</p>
+<p>Ela conhece conceitos de desenvolvimento.</p>
+<p>Quando pedimos uma conversão entre linguagens, ela não traduz apenas palavras.</p>
+<p>Ela tenta preservar arquitetura, responsabilidades e regras de negócio.&quot;</p>
+</blockquote>
+<hr>
+<h4 id="um-cenário-adverso-surge">Um cenário adverso surge:</h4>
+<blockquote>
+<p>&quot;Imagine que acabamos de criar nossa API de clientes em Java.&quot;</p>
+<p>&quot;Agora surge uma necessidade.&quot;</p>
+<p>&quot;Outra equipa da empresa trabalha com .NET.&quot;</p>
+</blockquote>
+<pre class="hljs"><code><div>Converta esta API Spring Boot para .NET.
+
+Mantenha:
+
+- arquitetura em camadas
+- DTOs
+- validações
+- endpoints REST
+- tratamento de exceções
+
+</div></code></pre>
+<blockquote>
+<p>&quot;A IA consegue gerar uma estrutura muito próxima do que um desenvolvedor .NET criaria manualmente.&quot;</p>
+<p>&quot;Ela não apenas converte a linguagem.&quot;</p>
+<p>&quot;Ela converte a solução.&quot;</p>
+<hr>
+<p>&quot;Percebam que a arquitetura continua a existir.</p>
+</blockquote>
+<hr>
+<h4 id="agora-imagine-outro-cenário">Agora imagine outro cenário:</h4>
+<blockquote>
+<p>&quot;Uma equipa de ciência de dados ou automação prefere Python.&quot;</p>
+</blockquote>
+<pre class="hljs"><code><div>Converta esta API para Python utilizando FastAPI.
+
+Mantenha:
+
+- separação de responsabilidades
+- validações
+- endpoints REST
+- documentação automática
+
+</div></code></pre>
+<h4 id="o-resultado">O Resultado:</h4>
+<blockquote>
+<p>&quot;A IA produz uma estrutura completamente diferente na implementação, mas semelhante na organização.&quot;</p>
+</blockquote>
+<h2 id="7-discussão-arquitetural-e-apoio-à-tomada-de-decisão-2-minutos">7. Discussão arquitetural e apoio à tomada de decisão.( 2 minutos)</h2>
+<h4 id="o-que-mudou">O que mudou?</h4>
+<blockquote>
+<p>Java</p>
+<p>Classes</p>
+<p>Spring</p>
+<p>Annotations</p>
+<p>↓</p>
+<p>.NET</p>
+<p>Controllers</p>
+<p>Dependency Injection</p>
+<p>Attributes</p>
+<p>↓</p>
+<p>Python</p>
+<p>FastAPI</p>
+<p>Pydantic</p>
+<p>Routers</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Antigamente, migrar entre tecnologias exigia semanas de pesquisa, hoje a IA ajuda a acelerar esse processo, ela não substitui o aprendizado mas reduz muito a curva inicial.</p>
+</blockquote>
+<h2 id="8-aplicações-em-outras-profissões-2-minutos">8. Aplicações em outras profissões.( 2 minutos)</h2>
+<blockquote>
+<p>Mas no nosso caso desta apresentação, não há somente desenvolvedores aqui, então segue alguns exemplos para aplicação a outras profissões</p>
+</blockquote>
+<ul>
+<li>Advogados
+<ul>
+<li>resumir processos;</li>
+<li>analisar documentos;</li>
+<li>gerar rascunhos.</li>
+</ul>
+</li>
+<li>Médicos
+<ul>
+<li>apoio à análise de exames;</li>
+<li>organização de informações.</li>
+</ul>
+</li>
+<li>Professores
+<ul>
+<li>criação de material didático;</li>
+<li>exercícios;</li>
+<li>planos de aula.</li>
+</ul>
+</li>
+<li>Gestores
+<ul>
+<li>elaboração de relatórios;</li>
+<li>análise de indicadores;</li>
+<li>planeamento.</li>
+</ul>
+</li>
+<li>Desenvolvedores
+<ul>
+<li>geração de código;</li>
+<li>testes;</li>
+<li>documentação;</li>
+<li>revisão técnica.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mensagem-final">Mensagem final</h2>
+<blockquote>
+<p>A IA não substitui o especialista.</p>
+<p>Ela amplia a capacidade do especialista, tecnicamente e na produtividade.</p>
+</blockquote>
+
+</body>
+</html>
