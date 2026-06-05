@@ -47,7 +47,7 @@
 
 
 ```
-Inicio de desenvolvimento de um serviço de autenticação que utiliza linguagem java, posgresql e keycloak, preciso de um docker-compose para iniciar o desenvolvimento.
+Inicio de desenvolvimento de um serviço de autenticação que utiliza linguagem posgresql e keycloak, preciso de um docker-compose para iniciar o desenvolvimento.
 ```
 >
 > Melhore a solução considerando:
@@ -99,6 +99,11 @@ Agora o projeto evoluiu e se faz necessária a criação de um docker-compose ma
 ```
 Crie uma API REST para manutenção
 de clientes.
+- nome
+- sobrenome
+- sexo
+- idade
+- email
 
 Gere:
 
