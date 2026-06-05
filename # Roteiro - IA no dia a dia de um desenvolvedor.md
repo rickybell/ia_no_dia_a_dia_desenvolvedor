@@ -40,7 +40,10 @@
 > - adiciona o prompt.
 > - gera o docker-compose
 > - exibe e explica o que aconteceu.
-> 
+>
+
+##### **>>>>>>>>>>> PROMPT EXEMPLO 1: >>>>>>>>>>>>>>>>>**
+
 
 
 ```
@@ -48,6 +51,10 @@ Inicio de desenvolvimento de um serviço de autenticação que utiliza linguagem
 ```
 >
 > Melhore a solução considerando:
+>
+
+##### **>>>>>>>>>>> PROMPT EXEMPLO 1.1: >>>>>>>>>>>>>>>>>**
+
 
 ```
 Agora o projeto evoluiu e se faz necessária a criação de um docker-compose mais adequado para direcionamento do projeto ir para produção levando em consideração os seguintes pontos: 
@@ -87,7 +94,7 @@ Agora o projeto evoluiu e se faz necessária a criação de um docker-compose ma
 > 
 > "Tradicionalmente isso exigiria várias classes, endpoints, testes e documentação."
  
-__PROMPT :__
+##### **>>>>>>>>>>> PROMPT EXEMPLO 2: >>>>>>>>>>>>>>>>>**
 
 ```
 Crie uma API REST para manutenção
@@ -113,6 +120,8 @@ Gere:
 >
 > "Software não é apenas código. Software precisa de qualidade."
 > 
+
+##### **>>>>>>>>>>> PROMPT EXEMPLO 2.1: >>>>>>>>>>>>>>>>>**
 
 ```
 Gere testes unitários
@@ -161,6 +170,8 @@ Considere:
 > 
 > 
 
+##### **>>>>>>>>>>> PROMPT EXEMPLO 3: >>>>>>>>>>>>>>>>>**
+
 ```
 Converta esta API Spring Boot para .NET.
 
@@ -189,7 +200,9 @@ Mantenha:
 
 > 
 > "Uma equipa de ciência de dados ou automação prefere Python."
-> 
+
+##### **>>>>>>>>>>> PROMPT EXEMPLO 3.1: >>>>>>>>>>>>>>>>>**
+
 ```
 Converta esta API para Python utilizando FastAPI.
 
